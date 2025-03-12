@@ -1,8 +1,5 @@
 <template>
-  <AppHeader/>
-  <v-main>
-    <router-view />
-  </v-main>
+  Login page
 </template>
 
 <script lang="ts" setup>

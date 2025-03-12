@@ -1,8 +1,5 @@
 <template>
-  <AppHeader/>
-  <v-main>
-    <router-view />
-  </v-main>
+  SOAP api for searching
 </template>
 
 <script lang="ts" setup>

@@ -1,8 +1,5 @@
 <template>
-  <AppHeader/>
-  <v-main>
-    <router-view />
-  </v-main>
+  XML-RPC api for getting weather
 </template>
 
 <script lang="ts" setup>
