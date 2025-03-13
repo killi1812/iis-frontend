@@ -1,15 +1,14 @@
 <template>
-  <div class="container">
-    validating xml rng and xsd
-    <v-switch v-model="xsd" v-bind:label="xsd ? 'xsd' : 'rng'"></v-switch>
-    <v-file-input v-model="file" clearable label="File input" variant="outlined"></v-file-input>
-    <v-btn @click='upload'>Validate</v-btn>
-    <div>
-      <p>
-        {{ error }}
-      </p>
-    </div>
-  </div>
+  <h3>validating xml rng and xsd</h3>
+
+  <v-switch v-model="xsd" v-bind:label="xsd ? 'xsd' : 'rng'" />
+
+  <v-file-input v-model="file" clearable label="File input" variant="outlined" />
+
+  <v-btn @click='upload'>Validate</v-btn>
+  <p>
+    {{ error }}
+  </p>
 </template>
 
 <script lang="ts" setup>
@@ -36,9 +35,3 @@ async function upload() {
 
 }
 </script>
-
-<style lang="css" scoped>
-.container {
-  margin: 5rem;
-}
-</style>
