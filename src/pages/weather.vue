@@ -29,14 +29,10 @@
 </template>
 
 <script lang="ts" setup>
-import { GetTemperature } from '../api/weather.ts'
-interface weatherRez {
-  location: string
-  temp: string
-}
+import { GetTemperature, WeatherRez } from '../api/weather'
 
 const query = ref(null)
-const results = ref<weatherRez[]>([])
+const results = ref<WeatherRez[]>([])
 
 async function searchWeather() {
   console.log(query.value)
@@ -44,8 +40,8 @@ async function searchWeather() {
     results.value = []
     return
   }
-  const rez = await GetTemperature(query)
-  results.value.push(rez)
+  const rez = await GetTemperature([query.value])
+  results.value = rez
 }
 
 //function decodeXml() { }
