@@ -22,6 +22,7 @@ const errMessage = ref<string | undefined>()
 // Hooks
 onMounted(async () => {
   const rez = await GetAllUser()
+  console.log(rez)
   if (rez.status != 200) {
     errMessage.value = rez.statusText
     if (rez.status == 401) {

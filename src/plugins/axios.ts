@@ -11,7 +11,7 @@ axiosInstance.interceptors.request.use(
   config => {
     const authStore = useAuthStore()
     const token = authStore.getJwtToken()
-    config.headers["Access-Control-Allow-Origin"] ="http://localhost:5555"
+    config.headers["Access-Control-Allow-Origin"] ="http://localhost:3000"
     if (token) {
       config.headers.Authorization = `Bearer ${token}`
     }

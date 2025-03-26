@@ -1,5 +1,6 @@
 // src/stores/auth.ts
 import { defineStore } from 'pinia'
+import { TokensDto } from '../models/tokensDto'
 
 export const useAuthStore = defineStore('auth', {
   state: () => ({
@@ -23,10 +24,10 @@ export const useAuthStore = defineStore('auth', {
       if (this.jwt == "") return undefined;
       return this.jwt
     },
-    setToken(token: string) {
+    setToken(token: TokensDto) {
       this.isLoggedIn = true
-      this.jwt = token
-      this.refresh = token
+      this.jwt = token.access_token
+      this.refresh = token.refresh_token
     }
   }
 })

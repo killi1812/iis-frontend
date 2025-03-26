@@ -24,6 +24,10 @@
 
 <script setup lang="ts">
 import { Login } from '../api/crud'
+import router from '../router'
+import { useAuthStore } from '../stores/auth'
+// user providers
+const authStore = useAuthStore()
 
 // Variables
 const visible = ref(false)
@@ -38,12 +42,15 @@ const loginFunc = async () => {
   })
 
   if (tokens.status != 200) {
-  //TODO: display error
+    //TODO: display error
     console.error(tokens.data)
   }
 
   //TODO: assign variables
   console.log(tokens.data)
+  authStore.setToken(tokens.data)
+  authStore.setUsername("admin")
+  router.push({name:'/secured'})
 }
 
 </script>
