@@ -53,26 +53,22 @@ export async function DeleteUser(id: string) {
   return res
 }
 
-export async function Create(user: UserDto) {
-  const formData = mapForm(user)
+export async function CreateUser(user: UserDto) {
+  const body = JSON.stringify(user)
 
-  const res = await axios.post(`${service}`, formData, {
-    headers: {
-      "Content-Type": "multipart/form-data",
-    },
-  })
+  const res = await axios.post(`${service}`, body)
   return res
 }
 
-export async function Update(id: string, user: UserDto) {
-  const formData = mapForm(user)
-
-  const res = await axios.put(`${service}/${id}`, formData, {
-    headers: {
-      "Content-Type": "multipart/form-data",
-    },
-  })
-  return res
+export async function UpdateUser(id: string, user: UserDto) {
+  const body = JSON.stringify(user)
+  try {
+    const res = await axios.put(`${service}/${id}`, body)
+    return res
+  }
+  catch(e: any){
+    return e.response
+  }
 }
 
 

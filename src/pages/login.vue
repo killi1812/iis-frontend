@@ -47,7 +47,6 @@ const loginFunc = async () => {
   }
 
   //TODO: assign variables
-  console.log(tokens.data)
   authStore.setToken(tokens.data)
   authStore.setUsername("admin")
   router.push({name:'/secured'})

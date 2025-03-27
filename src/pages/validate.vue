@@ -28,8 +28,7 @@ async function upload() {
       error.value = res.data.data
     }
 
-  } catch (err: error) {
-    console.log(err)
+  } catch (err: any) {
     error.value = err.response.data.error
   }
 

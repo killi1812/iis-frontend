@@ -35,7 +35,6 @@ const query = ref(null)
 const results = ref<WeatherRez[]>([])
 
 async function searchWeather() {
-  console.log(query.value)
   if (query.value == undefined || query.value === "") {
     results.value = []
     return
