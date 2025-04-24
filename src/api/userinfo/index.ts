@@ -1,0 +1,14 @@
+export { GetUserInfo } from "./definitions/GetUserInfo";
+export { GetUserInfoResponse } from "./definitions/GetUserInfoResponse";
+export { GetUserInfoResult } from "./definitions/GetUserInfoResult";
+export { AccountBadges } from "./definitions/AccountBadges";
+export { BioLinks } from "./definitions/BioLinks";
+export { BioLinks1 } from "./definitions/BioLinks1";
+export { BiographyWithEntities } from "./definitions/BiographyWithEntities";
+export { Entities } from "./definitions/Entities";
+export { Entity } from "./definitions/Entity";
+export { User } from "./definitions/User";
+export { HdProfilePicUrlInfo } from "./definitions/HdProfilePicUrlInfo";
+export { createClientAsync, UserInfoClient } from "./client";
+export { IUserInfo } from "./services/IUserInfo";
+export { BasicHttpBindingIUserInfo } from "./ports/BasicHttpBindingIUserInfo";

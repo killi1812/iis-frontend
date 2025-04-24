@@ -1,0 +1,216 @@
+<wsdl:definitions xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tns="http://tempuri.org/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:http="http://schemas.microsoft.com/ws/06/2004/policy/http" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" targetNamespace="http://tempuri.org/" name="IUserInfo" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xs:schema elementFormDefault="qualified" targetNamespace="http://tempuri.org/" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:ser="http://schemas.microsoft.com/2003/10/Serialization/">
+      <xs:import namespace="http://schemas.datacontract.org/2004/07/soap.UserInfoService"/>
+      <xs:import namespace="http://schemas.datacontract.org/2004/07/System"/>
+      <xs:element name="GetUserInfo">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="1" name="username" nillable="true" type="xs:string"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="GetUserInfoResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="1" name="GetUserInfoResult" nillable="true" xmlns:q1="http://schemas.datacontract.org/2004/07/soap.UserInfoService" type="q1:UserInfoDto"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:schema>
+    <xs:schema attributeFormDefault="qualified" elementFormDefault="qualified" targetNamespace="http://schemas.microsoft.com/2003/10/Serialization/" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://schemas.microsoft.com/2003/10/Serialization/">
+      <xs:element name="anyType" nillable="true" type="xs:anyType"/>
+      <xs:element name="anyURI" nillable="true" type="xs:anyURI"/>
+      <xs:element name="base64Binary" nillable="true" type="xs:base64Binary"/>
+      <xs:element name="boolean" nillable="true" type="xs:boolean"/>
+      <xs:element name="byte" nillable="true" type="xs:byte"/>
+      <xs:element name="dateTime" nillable="true" type="xs:dateTime"/>
+      <xs:element name="decimal" nillable="true" type="xs:decimal"/>
+      <xs:element name="double" nillable="true" type="xs:double"/>
+      <xs:element name="float" nillable="true" type="xs:float"/>
+      <xs:element name="int" nillable="true" type="xs:int"/>
+      <xs:element name="long" nillable="true" type="xs:long"/>
+      <xs:element name="QName" nillable="true" type="xs:QName"/>
+      <xs:element name="short" nillable="true" type="xs:short"/>
+      <xs:element name="string" nillable="true" type="xs:string"/>
+      <xs:element name="unsignedByte" nillable="true" type="xs:unsignedByte"/>
+      <xs:element name="unsignedInt" nillable="true" type="xs:unsignedInt"/>
+      <xs:element name="unsignedLong" nillable="true" type="xs:unsignedLong"/>
+      <xs:element name="unsignedShort" nillable="true" type="xs:unsignedShort"/>
+      <xs:element name="char" nillable="true" type="tns:char"/>
+      <xs:simpleType name="char">
+        <xs:restriction base="xs:int"/>
+      </xs:simpleType>
+      <xs:element name="duration" nillable="true" type="tns:duration"/>
+      <xs:simpleType name="duration">
+        <xs:restriction base="xs:duration">
+          <xs:pattern value="\-?P(\d*D)?(T(\d*H)?(\d*M)?(\d*(\.\d*)?S)?)?"/>
+          <xs:minInclusive value="-P10675199DT2H48M5.4775808S"/>
+          <xs:maxInclusive value="P10675199DT2H48M5.4775807S"/>
+        </xs:restriction>
+      </xs:simpleType>
+      <xs:element name="guid" nillable="true" type="tns:guid"/>
+      <xs:simpleType name="guid">
+        <xs:restriction base="xs:string">
+          <xs:pattern value="[\da-fA-F]{8}-[\da-fA-F]{4}-[\da-fA-F]{4}-[\da-fA-F]{4}-[\da-fA-F]{12}"/>
+        </xs:restriction>
+      </xs:simpleType>
+      <xs:attribute name="FactoryType" type="xs:QName"/>
+      <xs:attribute name="Id" type="xs:ID"/>
+      <xs:attribute name="Ref" type="xs:IDREF"/>
+    </xs:schema>
+    <xs:schema elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/soap.UserInfoService" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://schemas.datacontract.org/2004/07/soap.UserInfoService" xmlns:ser="http://schemas.microsoft.com/2003/10/Serialization/">
+      <xs:import namespace="http://schemas.datacontract.org/2004/07/System"/>
+      <xs:import namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays"/>
+      <xs:complexType name="UserInfoDto" xmlns:ser="http://schemas.microsoft.com/2003/10/Serialization/">
+        <xs:sequence>
+          <xs:element minOccurs="0" xmlns:q1="http://schemas.microsoft.com/2003/10/Serialization/Arrays" name="AccountBadges" nillable="true" type="q1:ArrayOfanyType"/>
+          <xs:element nillable="true" minOccurs="0" name="AccountType" type="xs:int"/>
+          <xs:element minOccurs="0" name="AddressStreet" type="xs:anyType"/>
+          <xs:element minOccurs="0" name="Attempts" nillable="true" type="xs:string"/>
+          <xs:element minOccurs="0" name="BioLinks" nillable="true" type="tns:ArrayOfBioLinks"/>
+          <xs:element minOccurs="0" name="Biography" nillable="true" type="xs:string"/>
+          <xs:element minOccurs="0" name="BiographyWithEntities" nillable="true" type="tns:BiographyWithEntities"/>
+          <xs:element minOccurs="0" name="Category" nillable="true" type="xs:string"/>
+          <xs:element minOccurs="0" name="CityName" type="xs:anyType"/>
+          <xs:element minOccurs="0" name="ExternalLynxUrl" nillable="true" type="xs:string"/>
+          <xs:element minOccurs="0" name="ExternalUrl" nillable="true" type="xs:string"/>
+          <xs:element minOccurs="0" name="FbidV2" nillable="true" type="xs:string"/>
+          <xs:element nillable="true" minOccurs="0" name="FollowerCount" type="xs:int"/>
+          <xs:element nillable="true" minOccurs="0" name="FollowingCount" type="xs:int"/>
+          <xs:element minOccurs="0" name="FullName" nillable="true" type="xs:string"/>
+          <xs:element minOccurs="0" name="HasChaining" type="xs:anyType"/>
+          <xs:element minOccurs="0" name="HasStoryArchive" type="xs:anyType"/>
+          <xs:element minOccurs="0" name="HdProfilePicUrlInfo" nillable="true" type="tns:HdProfilePicURLInfo"/>
+          <xs:element minOccurs="0" name="Id" nillable="true" type="xs:string"/>
+          <xs:element minOccurs="0" name="InteropMessagingUserFbid" nillable="true" type="xs:string"/>
+          <xs:element nillable="true" minOccurs="0" name="IsBusiness" type="xs:boolean"/>
+          <xs:element nillable="true" minOccurs="0" name="IsEmbedsDisabled" type="xs:boolean"/>
+          <xs:element nillable="true" minOccurs="0" name="IsMemorialized" type="xs:boolean"/>
+          <xs:element nillable="true" minOccurs="0" name="IsPrivate" type="xs:boolean"/>
+          <xs:element minOccurs="0" name="IsProfessionalAccount" type="xs:anyType"/>
+          <xs:element nillable="true" minOccurs="0" name="IsRegulatedC18" type="xs:boolean"/>
+          <xs:element nillable="true" minOccurs="0" name="IsUnpublished" type="xs:boolean"/>
+          <xs:element nillable="true" minOccurs="0" name="IsVerified" type="xs:boolean"/>
+          <xs:element minOccurs="0" name="LatestBestiesReelMedia" type="xs:anyType"/>
+          <xs:element minOccurs="0" name="LatestReelMedia" type="xs:anyType"/>
+          <xs:element minOccurs="0" name="LiveBroadcastId" type="xs:anyType"/>
+          <xs:element minOccurs="0" name="LiveBroadcastVisibility" type="xs:anyType"/>
+          <xs:element nillable="true" minOccurs="0" name="MediaCount" type="xs:int"/>
+          <xs:element minOccurs="0" name="MutualFollowersCount" type="xs:anyType"/>
+          <xs:element minOccurs="0" name="Pk" nillable="true" type="xs:string"/>
+          <xs:element minOccurs="0" name="ProfileContextLinksWithUserIds" type="xs:anyType"/>
+          <xs:element minOccurs="0" name="ProfilePicUrl" nillable="true" type="xs:string"/>
+          <xs:element minOccurs="0" name="ReelMediaSeenTimestamp" type="xs:anyType"/>
+          <xs:element minOccurs="0" xmlns:q2="http://schemas.microsoft.com/2003/10/Serialization/Arrays" name="RegulatedNewsInLocations" nillable="true" type="q2:ArrayOfanyType"/>
+          <xs:element nillable="true" minOccurs="0" name="ShouldShowCategory" type="xs:boolean"/>
+          <xs:element nillable="true" minOccurs="0" name="ShowAccountTransparencyDetails" type="xs:boolean"/>
+          <xs:element nillable="true" minOccurs="0" name="ShowTextPostAppBadge" type="xs:boolean"/>
+          <xs:element nillable="true" minOccurs="0" name="Status" type="xs:boolean"/>
+          <xs:element minOccurs="0" name="SupervisionInfo" type="xs:anyType"/>
+          <xs:element minOccurs="0" name="TextPostAppBadgeLabel" nillable="true" type="xs:string"/>
+          <xs:element nillable="true" minOccurs="0" name="TotalClipsCount" type="xs:int"/>
+          <xs:element minOccurs="0" name="TransparencyLabel" type="xs:anyType"/>
+          <xs:element minOccurs="0" name="TransparencyProduct" type="xs:anyType"/>
+          <xs:element minOccurs="0" name="Username" nillable="true" type="xs:string"/>
+          <xs:element minOccurs="0" name="Zip" type="xs:anyType"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="UserInfoDto" nillable="true" type="tns:UserInfoDto"/>
+      <xs:complexType name="HdProfilePicURLInfo" xmlns:ser="http://schemas.microsoft.com/2003/10/Serialization/">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Url" nillable="true" type="xs:string"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="HdProfilePicURLInfo" nillable="true" type="tns:HdProfilePicURLInfo"/>
+      <xs:complexType name="BiographyWithEntities" xmlns:ser="http://schemas.microsoft.com/2003/10/Serialization/">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Entities" nillable="true" type="tns:ArrayOfEntity"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="BiographyWithEntities" nillable="true" type="tns:BiographyWithEntities"/>
+      <xs:complexType name="ArrayOfEntity" xmlns:ser="http://schemas.microsoft.com/2003/10/Serialization/">
+        <xs:sequence>
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="Entity" nillable="true" type="tns:Entity"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="ArrayOfEntity" nillable="true" type="tns:ArrayOfEntity"/>
+      <xs:complexType name="Entity" xmlns:ser="http://schemas.microsoft.com/2003/10/Serialization/">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Hashtag" type="xs:anyType"/>
+          <xs:element minOccurs="0" name="User" nillable="true" type="tns:UserEntity"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="Entity" nillable="true" type="tns:Entity"/>
+      <xs:complexType name="UserEntity" xmlns:ser="http://schemas.microsoft.com/2003/10/Serialization/">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Id" nillable="true" type="xs:string"/>
+          <xs:element minOccurs="0" name="Username" nillable="true" type="xs:string"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="UserEntity" nillable="true" type="tns:UserEntity"/>
+      <xs:complexType name="ArrayOfBioLinks" xmlns:ser="http://schemas.microsoft.com/2003/10/Serialization/">
+        <xs:sequence>
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="BioLinks" nillable="true" type="tns:BioLinks"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="ArrayOfBioLinks" nillable="true" type="tns:ArrayOfBioLinks"/>
+      <xs:complexType name="BioLinks" xmlns:ser="http://schemas.microsoft.com/2003/10/Serialization/">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="LinkType" nillable="true" type="xs:string"/>
+          <xs:element minOccurs="0" name="LynxUrl" nillable="true" type="xs:string"/>
+          <xs:element minOccurs="0" name="Title" nillable="true" type="xs:string"/>
+          <xs:element minOccurs="0" name="Url" nillable="true" type="xs:string"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="BioLinks" nillable="true" type="tns:BioLinks"/>
+    </xs:schema>
+    <xs:schema elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/System" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://schemas.datacontract.org/2004/07/System" xmlns:ser="http://schemas.microsoft.com/2003/10/Serialization/">
+      <xs:import namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays"/>
+      <xs:complexType name="ArrayOfObject" xmlns:ser="http://schemas.microsoft.com/2003/10/Serialization/">
+        <xs:sequence>
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="anyType" type="xs:anyType"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="ArrayOfObject" nillable="true" type="tns:ArrayOfObject"/>
+    </xs:schema>
+    <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://schemas.microsoft.com/2003/10/Serialization/Arrays" xmlns:ser="http://schemas.microsoft.com/2003/10/Serialization/" elementFormDefault="qualified" targetNamespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays">
+      <xs:import namespace="http://schemas.microsoft.com/2003/10/Serialization/"/>
+      <xs:complexType name="ArrayOfanyType">
+        <xs:sequence>
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="anyType" type="xs:anyType"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="ArrayOfanyType" nillable="true" type="tns:ArrayOfanyType"/>
+    </xs:schema>
+  </wsdl:types>
+  <wsdl:message name="IUserInfo_GetUserInfo_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetUserInfo"/>
+  </wsdl:message>
+  <wsdl:message name="IUserInfo_GetUserInfo_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetUserInfoResponse"/>
+  </wsdl:message>
+  <wsdl:portType name="IUserInfo">
+    <wsdl:operation name="GetUserInfo">
+      <wsdl:input wsam:Action="http://tempuri.org/IUserInfo/GetUserInfo" message="tns:IUserInfo_GetUserInfo_InputMessage"/>
+      <wsdl:output wsam:Action="http://tempuri.org/IUserInfo/GetUserInfoResponse" message="tns:IUserInfo_GetUserInfo_OutputMessage"/>
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="BasicHttpBinding_IUserInfo" type="tns:IUserInfo">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="GetUserInfo">
+      <soap:operation soapAction="http://tempuri.org/IUserInfo/GetUserInfo" style="document"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="IUserInfo">
+    <wsdl:port name="BasicHttpBinding_IUserInfo" binding="tns:BasicHttpBinding_IUserInfo">
+      <soap:address location="http://localhost:5206/user-info"/>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>
