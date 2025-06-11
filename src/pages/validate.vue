@@ -2,9 +2,7 @@
   <h3>validating xml rng and xsd</h3>
 
   <v-switch v-model="xsd" v-bind:label="xsd ? 'xsd' : 'rng'" />
-
   <v-file-input v-model="file" clearable label="File input" variant="outlined" />
-
   <v-btn @click='upload'>Validate</v-btn>
   <p>
     {{ error }}
