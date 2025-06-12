@@ -9,7 +9,7 @@
       </v-card-title>
     </v-card-item>
 
-    <v-card-text>
+    <v-card-text v-if="result[file]">
       {{ result[file] }}
     </v-card-text>
   </v-card>
@@ -20,7 +20,6 @@
 // eslint-disable @typescript-eslint/no-explicit-any
 import { ValidateFile } from '../api/jaxb';
 import { getFiles } from '../api/validation';
-
 const loading = ref({})
 const files = ref([])
 const result = ref({})
@@ -46,7 +45,7 @@ async function Validate(query: string) {
       result.value[query] = rez.data
     } else {
       console.log(rez.error)
-      result.value[query] = rez.error
+      result.value[query] = rez.error.split(';').join("\n")
     }
   }
   catch (e: any) {
