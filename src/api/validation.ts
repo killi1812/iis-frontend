@@ -16,3 +16,7 @@ export async function ValidateFile(file: File, isXsd = true) {
 }
 
 
+export async function getFiles() {
+  const res = await axios.get(`${service}`)
+  return res.data
+}
