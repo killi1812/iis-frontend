@@ -24,6 +24,7 @@
 
 <script setup lang="ts">
 import { Login } from '../api/crud'
+import { startPeriodicRefresh } from '../plugins/axios'
 import router from '../router'
 import { useAuthStore } from '../stores/auth'
 // user providers
@@ -49,7 +50,8 @@ const loginFunc = async () => {
   //TODO: assign variables
   authStore.setToken(tokens.data)
   authStore.setUsername("admin")
-  router.push({name:'/secured'})
+  router.push({ name: '/secured' })
+  startPeriodicRefresh()
 }
 
 </script>
