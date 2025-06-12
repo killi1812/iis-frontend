@@ -2,32 +2,30 @@
 import { defineStore } from 'pinia'
 import { TokensDto } from '../models/tokensDto'
 
-export const useAuthStore = defineStore('auth', {
-  state: () => ({
-    isLoggedIn: false,
-    //TODO check how to make it undefinded
-    username: "",
-    jwt: "",
-    refresh: "",
-  }),
-  actions: {
-    logout() {
-      this.isLoggedIn = false
-      this.refresh = ""
-      this.jwt = ""
-      this.username = ""
-    },
-    setUsername(username: string) {
-      this.username = username
-    },
-    getJwtToken() {
-      if (this.jwt == "") return undefined;
-      return this.jwt
-    },
-    setToken(token: TokensDto) {
-      this.isLoggedIn = true
-      this.jwt = token.access_token
-      this.refresh = token.refresh_token
-    }
+export const useAuthStore = defineStore('auth', () => {
+  const isLoggedIn = ref(false)
+  const username = ref<string | undefined>(undefined)
+  const jwt = ref("")
+  const refresh = ref("")
+
+  function logout() {
+    isLoggedIn.value = false
+    refresh.value = ""
+    jwt.value = ""
+    username.value = undefined
   }
+
+  function setUsername(userName: string) {
+    username.value = userName
+  }
+  function getJwtToken() {
+    if (jwt.value == "") return undefined;
+    return jwt.value
+  }
+  function setToken(token: TokensDto) {
+    isLoggedIn.value = true
+    jwt.value = token.access_token
+    refresh.value = token.refresh_token
+  }
+  return { isLoggedIn, username, refresh, logout, setUsername, getJwtToken, setToken }
 })
