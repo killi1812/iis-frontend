@@ -1,6 +1,5 @@
 <template>
-  java
-
+  java - JAXB validation
   <v-card class="mx-auto my-8" elevation="16" max-width="344" @click="Validate(file)" v-for="file in files"
     :loading="loading[file]">
     <v-card-item>

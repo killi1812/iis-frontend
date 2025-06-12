@@ -10,21 +10,24 @@
         <v-btn @click="router.push({ name: '/weather' })">Zad 5</v-btn>
         <v-btn @click="router.push({ name: '/secured' })">Zad 6</v-btn>
         <v-btn v-if="!authStore.isLoggedIn" @click="router.push({ name: '/login' })">Login</v-btn>
-        <v-btn v-else @click="authStore.logout">{{ authStore.username }} | Logout</v-btn>
+        <v-btn v-else @click="logout">{{ authStore.username }} | Logout</v-btn>
       </template>
     </v-app-bar>
   </div>
 </template>
 
 <script setup lang="ts">
+import { stopPeriodicRefresh } from '../plugins/axios';
 import { useAuthStore } from '../stores/auth';
 
 const router = useRouter()
 const authStore = useAuthStore()
 
-watch([authStore.username], () => {
-  console.log(authStore.username)
-})
+async function logout() {
+  authStore.logout()
+  stopPeriodicRefresh()
+  await router.push({ name: '/login' })
+}
 
 </script>
 
