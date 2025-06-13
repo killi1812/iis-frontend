@@ -72,13 +72,8 @@ function parseUserInfoXml(xmlString: string): UserInfoResult | null {
         console.error("Also could not find <GetUserInfoResult> with tempuri namespace.");
         return null;
       }
-      // If found using alt path, log it and proceed cautiously
       console.warn("Found GetUserInfoResult using tempuri namespace instead of d4p1.");
-      // resultNode = altResultNode; // This line would cause issues as helpers expect d4p1.
-      // This scenario indicates a mismatch between XML and expected structure.
-      // For now, we proceed assuming the d4p1 namespace is correct as per the XML sample.
-      // If this error hits, the XML structure differs from the sample.
-      return null; // Stop if resultNode with expected d4p1 NS not found
+      return null;
     }
 
 
@@ -117,7 +112,7 @@ function parseUserInfoXml(xmlString: string): UserInfoResult | null {
     // --- Extract data into the result object ---
     const userInfo: UserInfoResult = {
       // Pass NS_D4P1 and the local name (without prefix) to helpers
-      AccountBadges: [], // Assuming based on i:nil="true"
+      AccountBadges: [],
       AccountType: getInt(resultNode, NS_D4P1, "AccountType"),
       AddressStreet: getText(resultNode, NS_D4P1, "AddressStreet"),
       Attempts: getText(resultNode, NS_D4P1, "Attempts"),
